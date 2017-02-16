@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="architect, design, building, material">
+<meta name="description" content="humane architecture">
+<meta name="author" content="Mark Keller">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>dots</title>
+<style>
+@charset "utf-8";body,html{height:100%;width:100%}a{text-decoration:inherit;font-family:inherit;font-size:inherit;font-style:inherit;line-height:inherit;color:inherit;outline:0}a:active,a:hover{text-decoration:underline}html{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:-moz-none;-ms-user-select:none;user-select:none;overflow:hidden}body{text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;padding:0;margin:0;cursor:default;font-family:Montserrat,sans-serif}#grid,#grid2{position:absolute;padding:10vw}#grid{z-index:2}#grid2{z-index:1;margin:15px}#visibleTable table,#visibleTable td{border:1px solid #EBEBEB;}table{border-collapse:collapse}tr{height:30px}td{width:30px;padding-left:13px;padding-bottom:6px}#backgroundTable table,#backgroundTable td{border:none}#players{position:absolute;bottom:2vw;left:0;width:100%;z-index:4;padding:0 10vw 29px 23vw}.count{position:fixed;font-weight:700;margin-top:2.12vw;text-align:center;width:100%;z-index:5;color:#FFF;font-size:1.5vw;display:none}.largeCircle{font-size:0;position:relative;display:inline-block;margin-left:1vw;margin-right:1vw;background-color:#EBEBEB;border-radius:50%;width:6vw;height:6vw;opacity:.7}.largeCircle:hover{opacity:1}.dotEmpty{display:none}.dot0{position:absolute;border-radius:60%;height:6px;width:6px;background-color:#000}.dot1,.dot2,.dot3,.dot4,.dot5{position:absolute;border-radius:50%;height:6px;width:6px}.dot1{background-color:#2daefd}.dot2{background-color:#49f770}.dot3{background-color:#ffed5e}.dot4{background-color:#ffaf42}.dot5{background-color:#ff3155}
+</style>
+<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+<script async language="javascript" type="text/javascript" src="js/dots.js"></script>
+</head>
+<body>
+<div id="grid">
+	<table id="backgroundTable">
+    	<tr>
+        </tr>
+    </table>
+</div>
+<div id="grid2">
+    <table id="visibleTable">
+    	<tr>
+        </tr>
+    </table>
+</div>
+<div id="players">
+	<div class="largeCircle" id="p0" onClick="playerChange(this.id)">#000<div class="count" id="p0count"></div></div>
+    <div class="largeCircle" id="p1" onClick="playerChange(this.id)">#2daefd<div class="count" id="p1count"></div></div>
+    <div class="largeCircle" id="p2" onClick="playerChange(this.id)">#49f770<div class="count" id="p2count"></div></div>
+    <div class="largeCircle" id="p3" onClick="playerChange(this.id)">#ffed5e<div class="count" id="p3count"></div></div>
+    <div class="largeCircle" id="p4" onClick="playerChange(this.id)">#ffaf42<div class="count" id="p4count"></div></div>
+    <div class="largeCircle" id="p5" onClick="playerChange(this.id)">#ff3155<div class="count" id="p5count"></div></div>
+</div>
+
+</body>
+</html>
