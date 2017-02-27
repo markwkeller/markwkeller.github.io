@@ -12,10 +12,6 @@ body{
 	margin-bottom:160px;
     background-color:#f6f6f6;
 }
-iframe{
-    border:0px;
-    width:100%;
-}
 #top{
 	position:fixed;
 	width:180px;
@@ -30,8 +26,8 @@ iframe{
 	background:#FFF;
 }
 #content{
-    width:80%;
-    max-width:900px;
+    width:90%;
+    max-width:800px;
     background:#FFF;
     margin-right: auto;
     margin-left: auto;
@@ -52,13 +48,10 @@ iframe{
 img{
 	width:100%;	
 }
-.text{
-	width:80%;
-	max-width:420px;
-	margin: 0 auto;	
-	padding-right:12px;
-	line-height:28px;
-	margin-top: 40px;
+.text{  
+	line-height:18px;
+	padding: 170px;
+    text-align: justify;
 }
 .embed,.image{
 	width:80%;
