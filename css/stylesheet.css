@@ -7,11 +7,16 @@ body{
 	overflow-x:hidden;
 	overflow-y:scroll;
 	font-family: 'Source Code Pro', monospace;
-    font-size: 10px;
+    font-size: 11px;
 	margin-top:160px;
 	margin-bottom:160px;
+    background-color:#f6f6f6;
 }
-#musseltop{
+iframe{
+    border:0px;
+    width:100%;
+}
+#top{
 	position:fixed;
 	width:180px;
 	top:64px;
@@ -24,7 +29,14 @@ body{
 	text-align:center;
 	background:#FFF;
 }
-#musselbottom{
+#content{
+    width:80%;
+    max-width:900px;
+    background:#FFF;
+    margin-right: auto;
+    margin-left: auto;
+}
+#bottom{
 	position:fixed;
 	width:180px;
 	bottom:32px;
