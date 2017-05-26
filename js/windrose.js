@@ -29590,19 +29590,15 @@ var weather = [[2014,1,1,0,260,3
 ],[2017,5,17,21,10,3
 ],[2017,5,17,22,260,7
 ],[2017,5,17,23,240,7]];
-var yearMin = 2014;
-var yearMax = 2017;
 var monthMin = 1;
 var monthMax = 12;
-var dayMin = 1;
-var dayMax = 31;
 var hourMin = 0;
 var hourMax = 23;
 
 var winHeight = 400;
 var winWidth = 400;
 var winMin = 400;
-var leftBar = 300;
+var leftBar = 200;
 var canvass = document.getElementById("canvass");
 var context = canvass.getContext("2d");
 
@@ -29628,23 +29624,19 @@ function drawRose(){
   var centerY = winHeight/2;
   var innerRadius = 2;
   for(var i = 0; i < weather.length; i++) {
-    if(weather[i][0]>=yearMin && weather[i][0]<=yearMax){
-      if(weather[i][1]>=monthMin && weather[i][1]<=monthMax){
-        if(weather[i][2]>=dayMin && weather[i][2]<=dayMax){
-          if(weather[i][3]>=hourMin && weather[i][3]<=hourMax){
-            if(weather[i][5]!=0){
-              var radians=(weather[i][4]-90+getRandom(-5,5))*Math.PI/180;
-              var outerRadius = (weather[i][5]+getRandom(-.5,.5))*(.007*winMin);
-              var innerX = centerX + innerRadius * Math.cos(radians);
-              var innerY = centerY + innerRadius * Math.sin(radians);
-              var outerX = centerX + outerRadius * Math.cos(radians);
-              var outerY = centerY + outerRadius * Math.sin(radians);
-              context.beginPath();
-              context.moveTo(innerX,innerY);
-              context.lineTo(outerX,outerY);
-              context.stroke();
-            }
-          }
+    if(weather[i][1]>=monthMin && weather[i][1]<=monthMax){
+      if(weather[i][3]>=hourMin && weather[i][3]<=hourMax){
+        if(weather[i][5]!=0){
+          var radians=(weather[i][4]-90+getRandom(-5,5))*Math.PI/180;
+          var outerRadius = (weather[i][5]+getRandom(-.5,.5))*(.007*winMin);
+          var innerX = centerX + innerRadius * Math.cos(radians);
+          var innerY = centerY + innerRadius * Math.sin(radians);
+          var outerX = centerX + outerRadius * Math.cos(radians);
+          var outerY = centerY + outerRadius * Math.sin(radians);
+          context.beginPath();
+          context.moveTo(innerX,innerY);
+          context.lineTo(outerX,outerY);
+          context.stroke();
         }
       }
     }
@@ -29665,27 +29657,6 @@ window.onresize = function (event) {
   drawRose();
 };
 function startup1(e) {
-  var syear = document.getElementById('year');
-  noUiSlider.create(syear, {
-    connect: true,
-    orientation: 'vertical',
-    start: [ 2014, 2017 ],
-    animate: false,
-    direction:'rtl',
-    range: {
-    		'min': [  2014 ],
-    		'max': [  2017 ]
-  	},
-    tooltips: true,
-    format: {
-  	  to: function ( value ) {
-  		return Math.ceil(value);
-  	  },
-  	  from: function ( value ) {
-  		return Math.floor(value);
-  	  }
-  	}
-  });
   var smonth = document.getElementById('month');
   noUiSlider.create(smonth, {
     connect: true,
@@ -29697,27 +29668,6 @@ function startup1(e) {
   	range: {
   		'min': [ 1 ],
   		'max': [ 12 ]
-  	},
-    format: {
-      to: function ( value ) {
-      return Math.ceil(value);
-      },
-      from: function ( value ) {
-      return Math.floor(value);
-      }
-    }
-  });
-  var sday = document.getElementById('day');
-  noUiSlider.create(sday, {
-    connect: true,
-    orientation: 'vertical',
-  	start: [ 1, 31 ],
-    direction:'rtl',
-    tooltips: true,
-    animate: false,
-  	range: {
-  		'min': [ 1 ],
-  		'max': [ 31 ]
   	},
     format: {
       to: function ( value ) {
@@ -29749,21 +29699,9 @@ function startup1(e) {
       }
     }
   });
-  syear.noUiSlider.on('update', function ( values, handle ) {
-    yearMin=values[0];
-    yearMax=values[1];
-    clearCanvas();
-    drawRose();
-  });
   smonth.noUiSlider.on('update', function ( values, handle ) {
     monthMin=values[0];
     monthMax=values[1];
-    clearCanvas();
-    drawRose();
-  });
-  sday.noUiSlider.on('update', function ( values, handle ) {
-    dayMin=values[0];
-    dayMax=values[1];
     clearCanvas();
     drawRose();
   });
