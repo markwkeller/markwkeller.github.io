@@ -29618,11 +29618,11 @@ function addLoadEvent(func) {
 }
 
 function drawRose(){
-  context.strokeStyle = "rgba(0,0,0,.05)";
-  context.lineWidth = 1;
   var centerX = winWidth/2;
   var centerY = winHeight/2;
   var innerRadius = 2;
+  context.strokeStyle = "rgba(0,0,0,.05)";
+  context.lineWidth = 1;
   for(var i = 0; i < weather.length; i++) {
     if(weather[i][0]>=monthMin && weather[i][0]<=monthMax){
       if(weather[i][2]>=hourMin && weather[i][2]<=hourMax){
@@ -29636,11 +29636,39 @@ function drawRose(){
           context.beginPath();
           context.moveTo(innerX,innerY);
           context.lineTo(outerX,outerY);
+          context.closePath();
           context.stroke();
         }
       }
     }
   }
+  context.strokeStyle = "rgba(0,0,0,.1)";
+  context.fillStyle = "#000";
+  context.lineWidth = 1;
+  context.font = "10px monospace";
+  context.beginPath();
+  context.arc(centerX, centerY, 5*(.007*winMin), 0, Math.PI * 2, true);
+  context.fillText("5", centerX+2+5*(.007*winMin), centerY);
+  context.closePath();
+  context.stroke();
+  context.beginPath();
+  context.arc(centerX, centerY, 10*(.007*winMin), 0, Math.PI * 2, true);
+  context.fillText("10", centerX+2+10*(.007*winMin), centerY);
+  context.closePath();
+  context.stroke();
+  context.beginPath();
+  context.arc(centerX, centerY, 20*(.007*winMin), 0, Math.PI * 2, true);
+  context.fillText("20", centerX+2+20*(.007*winMin), centerY);
+  context.closePath();
+  context.stroke();
+  context.beginPath();
+  context.arc(centerX, centerY, 30*(.007*winMin), 0, Math.PI * 2, true);
+  context.fillText("30", centerX+2+30*(.007*winMin), centerY);
+  context.closePath();
+  context.stroke();
+  var northX = centerX + (40*(.007*winMin)) * Math.cos(Math.PI*1.5);
+  var northY = centerY + (40*(.007*winMin)) * Math.sin(Math.PI*1.5);
+  context.fillText("N", northX-3, northY);
 }
 function getRandom(min, max) {
   return Math.random()*(max-min)+min;
