@@ -29601,7 +29601,8 @@ var hourMax = 23;
 
 var winHeight = 400;
 var winWidth = 400;
-var winMin = Math.min(winHeight,winWidth);
+var winMin = 400;
+var leftBar = 300;
 var canvass = document.getElementById("canvass");
 var context = canvass.getContext("2d");
 
@@ -29621,7 +29622,7 @@ function addLoadEvent(func) {
 }
 
 function drawRose(){
-  context.strokeStyle = "rgba(0,0,0,.02)";
+  context.strokeStyle = "rgba(0,0,0,.05)";
   context.lineWidth = 1;
   var centerX = winWidth/2;
   var centerY = winHeight/2;
@@ -29631,16 +29632,18 @@ function drawRose(){
       if(weather[i][1]>=monthMin && weather[i][1]<=monthMax){
         if(weather[i][2]>=dayMin && weather[i][2]<=dayMax){
           if(weather[i][3]>=hourMin && weather[i][3]<=hourMax){
-            var radians=(weather[i][4]+getRandom(-5,5))*Math.PI/180;
-            var outerRadius = (weather[i][5]+getRandom(-.5,.5))*(.007*winMin);
-            var innerX = centerX + innerRadius * Math.cos(radians);
-            var innerY = centerY + innerRadius * Math.sin(radians);
-            var outerX = centerX + outerRadius * Math.cos(radians);
-            var outerY = centerY + outerRadius * Math.sin(radians);
-            context.beginPath();
-            context.moveTo(innerX,innerY);
-            context.lineTo(outerX,outerY);
-            context.stroke();
+            if(weather[i][5]!=0){
+              var radians=(weather[i][4]-90+getRandom(-5,5))*Math.PI/180;
+              var outerRadius = (weather[i][5]+getRandom(-.5,.5))*(.007*winMin);
+              var innerX = centerX + innerRadius * Math.cos(radians);
+              var innerY = centerY + innerRadius * Math.sin(radians);
+              var outerX = centerX + outerRadius * Math.cos(radians);
+              var outerY = centerY + outerRadius * Math.sin(radians);
+              context.beginPath();
+              context.moveTo(innerX,innerY);
+              context.lineTo(outerX,outerY);
+              context.stroke();
+            }
           }
         }
       }
@@ -29650,23 +29653,128 @@ function drawRose(){
 function getRandom(min, max) {
   return Math.random()*(max-min)+min;
 }
-window.onresize = function (event) {
-  winWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-	winHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+function clearCanvas(){
+  winWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth - leftBar;
+  winHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
   winMin = Math.min(winHeight,winWidth);
   canvass.width = winWidth;
   canvass.height = winHeight;
+};
+window.onresize = function (event) {
+  clearCanvas();
   drawRose();
 };
-window.onkeypress=function() {
-};
 function startup1(e) {
-	winWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-	winHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-  winMin = Math.min(winHeight,winWidth);
-  canvass.width = winWidth;
-  canvass.height = winHeight;
-	drawRose();
+  var syear = document.getElementById('year');
+  noUiSlider.create(syear, {
+    connect: true,
+    orientation: 'vertical',
+    start: [ 2014, 2017 ],
+    animate: false,
+    direction:'rtl',
+    range: {
+    		'min': [  2014 ],
+    		'max': [  2017 ]
+  	},
+    tooltips: true,
+    format: {
+  	  to: function ( value ) {
+  		return Math.ceil(value);
+  	  },
+  	  from: function ( value ) {
+  		return Math.floor(value);
+  	  }
+  	}
+  });
+  var smonth = document.getElementById('month');
+  noUiSlider.create(smonth, {
+    connect: true,
+    orientation: 'vertical',
+  	start: [ 1, 12 ],
+    animate: false,
+    direction:'rtl',
+    tooltips: true,
+  	range: {
+  		'min': [ 1 ],
+  		'max': [ 12 ]
+  	},
+    format: {
+      to: function ( value ) {
+      return Math.ceil(value);
+      },
+      from: function ( value ) {
+      return Math.floor(value);
+      }
+    }
+  });
+  var sday = document.getElementById('day');
+  noUiSlider.create(sday, {
+    connect: true,
+    orientation: 'vertical',
+  	start: [ 1, 31 ],
+    direction:'rtl',
+    tooltips: true,
+    animate: false,
+  	range: {
+  		'min': [ 1 ],
+  		'max': [ 31 ]
+  	},
+    format: {
+      to: function ( value ) {
+      return Math.ceil(value);
+      },
+      from: function ( value ) {
+      return Math.floor(value);
+      }
+    }
+  });
+  var shour = document.getElementById('hour');
+  noUiSlider.create(shour, {
+    connect: true,
+    orientation: 'vertical',
+    start: [ 0, 23 ],
+    animate: false,
+    direction:'rtl',
+    tooltips: true,
+    range: {
+      'min': [ 0 ],
+      'max': [ 23 ]
+    },
+    format: {
+      to: function ( value ) {
+      return Math.ceil(value);
+      },
+      from: function ( value ) {
+      return Math.floor(value);
+      }
+    }
+  });
+  syear.noUiSlider.on('update', function ( values, handle ) {
+    yearMin=values[0];
+    yearMax=values[1];
+    clearCanvas();
+    drawRose();
+  });
+  smonth.noUiSlider.on('update', function ( values, handle ) {
+    monthMin=values[0];
+    monthMax=values[1];
+    clearCanvas();
+    drawRose();
+  });
+  sday.noUiSlider.on('update', function ( values, handle ) {
+    dayMin=values[0];
+    dayMax=values[1];
+    clearCanvas();
+    drawRose();
+  });
+  shour.noUiSlider.on('update', function ( values, handle ) {
+    hourMin=values[0];
+    hourMax=values[1];
+    clearCanvas();
+    drawRose();
+  });
+  clearCanvas();
+  drawRose();
 }
 
 addLoadEvent(startup1);

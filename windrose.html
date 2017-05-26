@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Salt Spring Island Wind</title>
+
+  <script async type='text/javascript' src='js/windrose.js'></script>
+  <link href="css/nouislider.css" rel="stylesheet">
+  <style>
+  html, body, div, canvas {
+      margin: 0;
+      padding: 0;
+  }
+  canvas{
+    margin-left:150px;
+  }
+  html, body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    font-size: 9px;
+    font-family: monospace;
+    color: #000;
+  }
+  #year, #month, #day, #hour {
+    position: absolute;
+    height: 80%;
+    top:10%;
+  }
+  .sliderText{
+    position: absolute;
+    bottom:5%;
+  }
+
+  #year {
+    left: 100px;
+  }
+  #yearText {
+    left: 102px;
+  }
+
+  #month {
+    left: 160px;
+  }
+  #monthText {
+    left: 162px;
+  }
+
+  #day {
+    left: 220px;
+  }
+  #dayText {
+    left: 222px;
+  }
+
+  #hour {
+    left: 280px;
+  }
+  #hourText {
+    left: 282px;
+  }
+  </style>
+</head>
+<body>
+    <div class="sliders" id="year"></div>
+    <div class="sliderText" id="yearText">Y</div>
+    <div class="sliders" id="month"></div>
+    <div class="sliderText" id="monthText">M</div>
+    <div class="sliders" id="day"></div>
+    <div class="sliderText" id="dayText">D</div>
+    <div class="sliders" id="hour"></div>
+    <div class="sliderText" id="hourText">H</div>
+  <canvas id="canvass" width="400" height="400">
+    This text is displayed if your browser does not support HTML5 Canvas.
+  </canvas>
+  <script src="js/nouislider.min.js"></script>
+</body>
+</html>
