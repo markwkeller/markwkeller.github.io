@@ -4,22 +4,32 @@
   <title>Billi Nash</title>
   <link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
   <style>
-  html, body, div{
+  html, body, div, iframe{
     margin: 0;
     padding: 0;
   }
   html, body {
     overflow-x: hidden;
     overflow-y: hidden;
-    font-size: 50px;
+    font-size: 40px;
     font-family: 'Rock Salt', monospace;
     color: #fff;
+  }
+  iframe{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    outline: 0;
+  }
   }
   .navigation{
     position: absolute;
     width:100%;
     text-align: center;
-    bottom:30%;
+    bottom:25%;
   }
   #player{
     position: fixed;
@@ -47,7 +57,7 @@
 </head>
 <body>
   <div id="links" class="navigation">
-    Tour   /   Contact   /   About
+    Tour&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;Contact&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;About
   </div>
 
   <div id="player">
