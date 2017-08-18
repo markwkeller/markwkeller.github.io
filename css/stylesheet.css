@@ -9,6 +9,7 @@ body{
 	overflow-y:scroll;
 	font-family: Courier, monospace;
 	font-size: 11px;
+	font-weight: bold;
 	margin-top:160px;
 	margin-bottom:160px;
 	background-color:#f6f6f6;
