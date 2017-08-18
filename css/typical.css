@@ -12,6 +12,7 @@ body{
 	margin-top:160px;
 	margin-bottom:160px;
 	background-color:#f6f6f6;
+	padding:0px;
 }
 #top{
 	position:fixed;
@@ -28,6 +29,7 @@ body{
 }
 #middle{
 	width:90%;
+	padding:0px;
 	max-width:800px;
 	background:#FFF;
 	margin-right: auto;
