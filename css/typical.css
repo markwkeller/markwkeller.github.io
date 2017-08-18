@@ -2,6 +2,10 @@
 a{
 	text-decoration:inherit;font-family:inherit;font-size:inherit;font-style:inherit;line-height:inherit;color:inherit;outline:0;
 }
+html{
+	padding:0px;
+	margin:0px;
+}
 body{
 	height:100%;
 	width:100%;
@@ -11,6 +15,8 @@ body{
 	font-size: 11px;
 	margin-top:160px;
 	margin-bottom:160px;
+	margin-right:0px;
+	margin-left:0px;
 	background-color:#f6f6f6;
 	padding:0px;
 }
@@ -29,7 +35,6 @@ body{
 }
 #middle{
 	width:90%;
-	padding:0px;
 	max-width:800px;
 	background:#FFF;
 	margin-right: auto;
@@ -87,7 +92,7 @@ strong{
 ::-moz-selection {
 	background: #ffff00;
 }
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
     .text{
 			padding:10px;
 		}
