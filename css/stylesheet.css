@@ -13,11 +13,6 @@ body{
 	margin-bottom:160px;
 	background-color:#f6f6f6;
 }
-.content{
-	margin-right: auto;
-	margin-left: auto;
-	background:#FFF;
-}
 #top{
 	position:fixed;
 	width:180px;
@@ -27,10 +22,16 @@ body{
 	padding-top:9px;
 	height:24px;
 	text-align:center;
+	margin-right: auto;
+	margin-left: auto;
+	background:#FFF;
 }
 #middle{
 	width:90%;
 	max-width:800px;
+	margin-right: auto;
+	margin-left: auto;
+	background:#FFF;
 }
 #bottom{
 	position:fixed;
@@ -41,6 +42,9 @@ body{
 	padding-top:9px;
 	height:24px;
 	text-align:center;
+	margin-right: auto;
+	margin-left: auto;
+	background:#FFF;
 }
 img{
 	width:100%;
