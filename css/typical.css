@@ -71,7 +71,7 @@ p{
 	text-align:justify;
 	margin:0px;
 }
-mark {
+mark{
 	background-color: #ffff00;
 	color: black;
 }
@@ -84,4 +84,9 @@ strong{
 }
 ::-moz-selection {
 	background: #ffff00;
+}
+@media only screen and (max-width: 500px) {
+    .text{
+			padding:10px;
+		}
 }
