@@ -9,7 +9,6 @@ body{
 	overflow-y:scroll;
 	font-family: Courier, monospace;
 	font-size: 11px;
-	font-weight: bold;
 	margin-top:160px;
 	margin-bottom:160px;
 	background-color:#f6f6f6;
@@ -20,19 +19,19 @@ body{
 	top:64px;
 	right: 0;
 	left: 0;
+	margin-right: auto;
+	margin-left: auto;
 	padding-top:9px;
 	height:24px;
 	text-align:center;
-	margin-right: auto;
-	margin-left: auto;
 	background:#FFF;
 }
-#middle{
+#content{
 	width:90%;
 	max-width:800px;
+	background:#FFF;
 	margin-right: auto;
 	margin-left: auto;
-	background:#FFF;
 }
 #bottom{
 	position:fixed;
@@ -40,11 +39,11 @@ body{
 	bottom:32px;
 	right: 0;
 	left: 0;
+	margin-right: auto;
+	margin-left: auto;
 	padding-top:9px;
 	height:24px;
 	text-align:center;
-	margin-right: auto;
-	margin-left: auto;
 	background:#FFF;
 }
 img{
@@ -72,7 +71,7 @@ p{
 	text-align:justify;
 	margin:0px;
 }
-mark{
+mark {
 	background-color: #ffff00;
 	color: black;
 }
