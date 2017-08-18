@@ -12,7 +12,9 @@ body{
 	overflow-x:hidden;
 	overflow-y:scroll;
 	font-family: Courier, monospace;
+	text-rendering:geometricPrecision;
 	font-size: 11px;
+	text-shadow: 0px 0px 0.3px #000;
 	margin-top:160px;
 	margin-bottom:160px;
 	margin-right:0px;
