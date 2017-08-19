@@ -1,6 +1,10 @@
 @charset "utf-8";
 a{
-	text-decoration:inherit;font-family:inherit;font-size:inherit;font-style:inherit;line-height:inherit;color:inherit;outline:0;
+	text-decoration:inherit;font-family:inherit;font-size:inherit;font-style:inherit;line-height:inherit;color:inherit;
+}
+a:hover{
+	background: #ffff00;
+}
 }
 html{
 	padding:0px;
@@ -35,9 +39,13 @@ body{
 	text-align:center;
 	background:#FFF;
 }
+#top:hover{
+	background: #ffff00;
+}
 #middle{
 	width:90%;
 	max-width:800px;
+	min-height:340px;
 	background:#FFF;
 	margin-right: auto;
 	margin-left: auto;
@@ -55,14 +63,27 @@ body{
 	text-align:center;
 	background:#FFF;
 }
+#bottom:hover{
+	background: #ffff00;
+}
 img{
 	width:100%;
 }
+.menuWrapper{
+	margin-top:auto;
+	margin-bottom:auto;
+	height:100%;
+}
 .menu{
-	line-height:20px;
-	padding: 170px;
+	width:180px;
+	margin-left:auto;
+	margin-right:auto;
+	line-height:18px;
+	padding: 3px;
 	text-align: center;
 }
+.menu:hover{
+background: #ffff00;
 }
 .text{
 	line-height:18px;
