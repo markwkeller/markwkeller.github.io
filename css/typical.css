@@ -93,7 +93,7 @@ background: #ffff00;
 }
 .text{
 	line-height:18px;
-	padding: 170px;
+	padding: 156px;
 	text-align: justify;
 }
 .embed,.image{
@@ -126,6 +126,28 @@ strong{
 }
 ::-moz-selection {
 	background: #ffff00;
+}
+ol {
+    counter-reset: item;
+		margin:0px;
+		padding:0px;
+}
+
+ol > li {
+    counter-increment: item;
+}
+
+ol ol > li {
+    display: block;
+		padding-left:32px;
+}
+
+ol ol > li:before {
+    content: counters(item, ".") ". ";
+		margin-left: -36px;
+}
+li{
+	margin-top:14px;
 }
 @media only screen and (max-width: 650px) {
     .text{
