@@ -1,10 +1,12 @@
 @charset "utf-8";
 a{
-	text-decoration:inherit;font-family:inherit;font-size:inherit;font-style:inherit;line-height:inherit;color:inherit;
+	text-decoration:inherit;font-family:inherit;font-size:inherit;font-style:inherit;line-height:inherit;color:inherit;white-space:nowrap;display: inline;clear: none;
 }
 a:hover{
 	background: #ffff00;
 }
+a:active{
+	background: #ffff00;
 }
 html{
 	padding:0px;
@@ -74,52 +76,20 @@ img{
 	line-height:23px;
 	text-align:center;
 }
-.menuWrapper{
+nav{
 	width:180px;
-	padding-top:50px;
-	padding-bottom:20px;
+	padding-top:17px;
+	padding-bottom:2px;
 	background:#FFF;
 	margin-right: auto;
 	margin-left: auto;
 	box-shadow: 0px 0px 1px #fff;
-}
-.menu{
-	width:180px;
-	line-height:23px;
-	text-align: center;
-}
-.menu:hover{
-background: #ffff00;
+	line-height:24px;
 }
 .text{
 	line-height:18px;
 	padding: 156px;
 	text-align: justify;
-}
-.embed,.image{
-	width:80%;
-	max-width:460px;
-	padding-right:12px;
-	margin: 0 auto;
-	margin-top: 40px;
-}
-h1{
-	font-size: 10px;
-	text-align:center;
-	font-weight:500;
-	margin:0px;
-}
-p{
-	text-align:justify;
-	margin:0px;
-}
-mark{
-	background-color: #ffff00;
-	color: black;
-}
-strong{
-	font-weight: 500;
-	color:white;
 }
 ::selection {
 	background: #ffff00;
@@ -132,22 +102,68 @@ ol {
 		margin:0px;
 		padding:0px;
 }
-
 ol > li {
     counter-increment: item;
 }
-
 ol ol > li {
     display: block;
 		padding-left:32px;
 }
-
 ol ol > li:before {
     content: counters(item, ".") ". ";
 		margin-left: -36px;
 }
 li{
 	margin-top:14px;
+}
+li:before {
+	color:#2e2e2e;
+	text-shadow:  0px 0px .4px #7b7b7b, 0px 0px .8px #bbb;
+}
+ul {
+		margin:0px;
+		padding:0px;
+		list-style: none;
+}
+label{
+  display: block;
+  cursor: pointer;
+}
+label:hover{
+  background: #ffff00;
+}
+ul ul li:hover{
+  background: #ffff00;
+}
+ul li{
+	cursor:pointer;
+	margin:0px;
+	text-indent:20px;
+	margin-bottom:14px
+}
+ul ul li{
+  margin:0px;
+	text-indent:42px;
+	margin-top:-14px;
+}
+ul li:last-child{
+  margin-bottom:14px;
+}
+input[type="checkbox"]{
+  position: absolute;
+  left: -9999px;
+}
+input[type="checkbox"] ~ ul{
+  height: 0;
+  transform: scaleY(0);
+}
+input[type="checkbox"]:checked ~ ul{
+  height: 100%;
+  transform: scaleY(1);
+	margin-bottom:-8px;
+}
+input[type="checkbox"]:checked + label{
+	margin-bottom:20px;
 }
 @media only screen and (max-width: 650px) {
     .text{
