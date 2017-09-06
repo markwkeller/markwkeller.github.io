@@ -29590,6 +29590,7 @@ var weather = [[1,1,0,260,3
 ],[5,17,21,10,3
 ],[5,17,22,260,7
 ],[5,17,23,240,7]];
+
 var monthMin = 1;
 var monthMax = 12;
 var hourMin = 0;
