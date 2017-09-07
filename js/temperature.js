@@ -29593,6 +29593,8 @@ var weather = [[1,0,6.0
 
 var monthMin = 1;
 var monthMax = 12;
+var hourMin = 0;
+var hourMax = 23;
 
 var winHeight = 400;
 var winWidth = 400;
@@ -29620,54 +29622,57 @@ function drawRose(){
   var centerX = winWidth/2;
   var centerY = winHeight/2;
   var innerRadius = 2;
-  context.strokeStyle = "rgba(0,0,0,.05)";
+  context.fillStyle = "rgba(0,0,0,.7)";
   context.lineWidth = 1;
   for(var i = 0; i < weather.length; i++) {
     if(weather[i][0]>=monthMin && weather[i][0]<=monthMax){
-      if(weather[i][2]>=hourMin && weather[i][2]<=hourMax){
-        if(weather[i][4]!=0){
-          var radians=(weather[i][3]-90+getRandom(-5,5))*Math.PI/180;
-          var outerRadius = (weather[i][4]+getRandom(-.5,.5))*(.007*winMin);
-          var innerX = centerX + innerRadius * Math.cos(radians);
-          var innerY = centerY + innerRadius * Math.sin(radians);
-          var outerX = centerX + outerRadius * Math.cos(radians);
-          var outerY = centerY + outerRadius * Math.sin(radians);
-          context.beginPath();
-          context.moveTo(innerX,innerY);
-          context.lineTo(outerX,outerY);
-          context.closePath();
-          context.stroke();
-        }
+      if(weather[i][1]>=hourMin && weather[i][1]<=hourMax){
+          var pointX = centerX+((weather[i][1]+getRandom(-.5,.5)-12)*winMin*.025);
+          var pointY = centerY-(weather[i][2]+getRandom(-.1,.1)-6)*winMin*.015;
+          context.fillRect(pointX,pointY,1.5,1.5);
       }
     }
   }
-  context.strokeStyle = "rgba(0,0,0,.1)";
+  context.strokeStyle = "#fff";
   context.fillStyle = "#000";
-  context.lineWidth = 1;
+  context.lineWidth = 5;
   context.font = "9px monospace";
   context.beginPath();
-  context.arc(centerX, centerY, 5*(.007*winMin), 0, Math.PI * 2, true);
-  context.fillText("5", centerX+2+5*(.007*winMin), centerY);
+  context.moveTo(centerX-13.5*winMin*.025,centerY+6*winMin*.015);
+  context.lineTo(centerX+12.5*winMin*.025,centerY+6*winMin*.015);
+  context.closePath();
+  context.stroke();
+  context.lineWidth = 1;
+  context.beginPath();
+  context.moveTo(centerX-13.5*winMin*.025,centerY+1*winMin*.015);
+  context.lineTo(centerX+12.5*winMin*.025,centerY+1*winMin*.015);
   context.closePath();
   context.stroke();
   context.beginPath();
-  context.arc(centerX, centerY, 10*(.007*winMin), 0, Math.PI * 2, true);
-  context.fillText("10", centerX+2+10*(.007*winMin), centerY);
+  context.moveTo(centerX-13.5*winMin*.025,centerY-4*winMin*.015);
+  context.lineTo(centerX+12.5*winMin*.025,centerY-4*winMin*.015);
   context.closePath();
   context.stroke();
   context.beginPath();
-  context.arc(centerX, centerY, 20*(.007*winMin), 0, Math.PI * 2, true);
-  context.fillText("20", centerX+2+20*(.007*winMin), centerY);
+  context.moveTo(centerX-13.5*winMin*.025,centerY-9*winMin*.015);
+  context.lineTo(centerX+12.5*winMin*.025,centerY-9*winMin*.015);
   context.closePath();
   context.stroke();
   context.beginPath();
-  context.arc(centerX, centerY, 30*(.007*winMin), 0, Math.PI * 2, true);
-  context.fillText("30", centerX+2+30*(.007*winMin), centerY);
+  context.moveTo(centerX-13.5*winMin*.025,centerY-14*winMin*.015);
+  context.lineTo(centerX+12.5*winMin*.025,centerY-14*winMin*.015);
   context.closePath();
   context.stroke();
-  var northX = centerX + (40*(.007*winMin)) * Math.cos(Math.PI*1.5);
-  var northY = centerY + (40*(.007*winMin)) * Math.sin(Math.PI*1.5);
-  context.fillText("N", northX-3, northY);
+  context.beginPath();
+  context.moveTo(centerX-13.5*winMin*.025,centerY-19*winMin*.015);
+  context.lineTo(centerX+12.5*winMin*.025,centerY-19*winMin*.015);
+  context.closePath();
+  context.stroke();
+  context.fillText("0°", centerX+12.5*winMin*.025,centerY+3+6*winMin*.015);
+  context.fillText("5°", centerX+12.5*winMin*.025,centerY+3+1*winMin*.015);
+  context.fillText("10°", centerX+12.5*winMin*.025,centerY+3-4*winMin*.015);
+  context.fillText("15°", centerX+12.5*winMin*.025,centerY+3-9*winMin*.015);
+  context.fillText("20°", centerX+12.5*winMin*.025,centerY+3-14*winMin*.015);
 }
 function getRandom(min, max) {
   return Math.random()*(max-min)+min;

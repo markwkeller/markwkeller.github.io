@@ -13570,54 +13570,57 @@ function drawRose(){
   var centerX = winWidth/2;
   var centerY = winHeight/2;
   var innerRadius = 2;
-  context.strokeStyle = "rgba(0,0,0,.05)";
-  context.lineWidth = 1;
+  var sunCount = 0;
+  var cloudCount = 0;
+  var rainCount = 0;
+  var snowCount = 0;
+  context.fillStyle = "#000";
   for(var i = 0; i < weather.length; i++) {
     if(weather[i][0]>=monthMin && weather[i][0]<=monthMax){
-      if(weather[i][2]>=hourMin && weather[i][2]<=hourMax){
-        if(weather[i][4]!=0){
-          var radians=(weather[i][3]-90+getRandom(-5,5))*Math.PI/180;
-          var outerRadius = (weather[i][4]+getRandom(-.5,.5))*(.007*winMin);
-          var innerX = centerX + innerRadius * Math.cos(radians);
-          var innerY = centerY + innerRadius * Math.sin(radians);
-          var outerX = centerX + outerRadius * Math.cos(radians);
-          var outerY = centerY + outerRadius * Math.sin(radians);
-          context.beginPath();
-          context.moveTo(innerX,innerY);
-          context.lineTo(outerX,outerY);
-          context.closePath();
-          context.stroke();
+      if(weather[i][1]>=hourMin && weather[i][1]<=hourMax){
+        if(weather[i][2]==0){
+          sunCount++;
+        }
+        else if (weather[i][2]==1){
+          cloudCount++;
+        }
+        else if (weather[i][2]==2){
+          rainCount++;
+        }
+        else if (weather[i][2]==3){
+          snowCount++;
         }
       }
     }
   }
-  context.strokeStyle = "rgba(0,0,0,.1)";
-  context.fillStyle = "#000";
-  context.lineWidth = 1;
+  var rectHeight = .6*winMin;
+  var rectWidth = .1*winMin;
+  var totalCount = sunCount + cloudCount + rainCount + snowCount;
+  context.fillRect(centerX-rectWidth/2,centerY-rectHeight/2,rectWidth,rectHeight);
+  context.strokeStyle="#fff";
+  context.lineWidth=1;
   context.font = "9px monospace";
+  context.textAlign = "center";
   context.beginPath();
-  context.arc(centerX, centerY, 5*(.007*winMin), 0, Math.PI * 2, true);
-  context.fillText("5", centerX+2+5*(.007*winMin), centerY);
+  context.moveTo(centerX-rectWidth/2,(centerY-rectHeight/2)+(sunCount/(totalCount)*rectHeight));
+  context.lineTo(centerX+rectWidth/2,(centerY-rectHeight/2)+(sunCount/(totalCount)*rectHeight));
   context.closePath();
   context.stroke();
   context.beginPath();
-  context.arc(centerX, centerY, 10*(.007*winMin), 0, Math.PI * 2, true);
-  context.fillText("10", centerX+2+10*(.007*winMin), centerY);
+  context.moveTo(centerX-rectWidth/2,(centerY-rectHeight/2)+((sunCount+cloudCount)/(totalCount)*rectHeight));
+  context.lineTo(centerX+rectWidth/2,(centerY-rectHeight/2)+((sunCount+cloudCount)/(totalCount)*rectHeight));
   context.closePath();
   context.stroke();
   context.beginPath();
-  context.arc(centerX, centerY, 20*(.007*winMin), 0, Math.PI * 2, true);
-  context.fillText("20", centerX+2+20*(.007*winMin), centerY);
+  context.moveTo(centerX-rectWidth/2,(centerY-rectHeight/2)+((sunCount+cloudCount+rainCount)/(totalCount)*rectHeight));
+  context.lineTo(centerX+rectWidth/2,(centerY-rectHeight/2)+((sunCount+cloudCount+rainCount)/(totalCount)*rectHeight));
   context.closePath();
   context.stroke();
-  context.beginPath();
-  context.arc(centerX, centerY, 30*(.007*winMin), 0, Math.PI * 2, true);
-  context.fillText("30", centerX+2+30*(.007*winMin), centerY);
-  context.closePath();
-  context.stroke();
-  var northX = centerX + (40*(.007*winMin)) * Math.cos(Math.PI*1.5);
-  var northY = centerY + (40*(.007*winMin)) * Math.sin(Math.PI*1.5);
-  context.fillText("N", northX-3, northY);
+  context.fillStyle = "#fff";
+  context.fillText("SUN", centerX,3+(centerY-rectHeight/2)+((sunCount/2)/(totalCount)*rectHeight));
+  context.fillText("CLOUDS", centerX,3+(centerY-rectHeight/2)+((sunCount+cloudCount/2)/(totalCount)*rectHeight));
+  context.fillText("RAIN", centerX,3+(centerY-rectHeight/2)+((sunCount+cloudCount+rainCount/2)/(totalCount)*rectHeight));
+  context.fillText("SNOW", centerX,4+(centerY-rectHeight/2)+((sunCount+cloudCount+rainCount+snowCount/2)/(totalCount)*rectHeight));
 }
 function getRandom(min, max) {
   return Math.random()*(max-min)+min;
