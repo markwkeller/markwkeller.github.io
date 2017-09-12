@@ -1,0 +1,55 @@
+@charset "utf-8";
+a {
+	text-decoration: inherit;
+	font-family:inherit;
+	font-size:inherit;
+	font-style:inherit;
+	line-height:inherit;
+	color: inherit;
+	background: 0;
+	outline: 0;
+}
+a:hover {
+	color:#333;
+}
+
+html {
+	height: 100%;
+	width: 100%;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: -moz-none;
+	-ms-user-select: none;
+	user-select: none;
+	overflow:hidden;
+	cursor:crosshair;
+}
+body {
+	font-size: 40px;
+	font-family:"HelveticaNeueLT Pro 35 Th";
+	color: #333;
+	background: #F0F0F0;
+	-webkit-font-smoothing: antialiased;
+	font-smooth: antialiased;
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	line-height:38px;
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-position:center;
+}
+#thesis{
+	position:absolute;
+	text-transform:uppercase;
+	bottom:200px;
+	left:20px;
+	
+}
+#change{
+	font-family:"HelveticaNeueLT Pro 65 Md";
+	font-weight:bold;
+	display:inline-block;
+}
