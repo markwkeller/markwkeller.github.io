@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<title>Sexy Architecture</title>
+<meta charset="utf-8">
+<meta name="keywords" content="Humane Architecture">
+<meta name="description" content="Mark Keller">
+<meta name="author" content="Mark Keller">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="../css/typical.css" rel="stylesheet" type="text/css">
+<style>
+.text{
+	text-transform:uppercase;
+}
+#change{
+	display:inline-block;
+	}
+</style>
+<script>
+var content = [
+"nailing studs",
+"pipe penetrations",
+"fire-rated penetrations",
+"through-wall penetrations",
+"undulating facades",
+"shaft liners",
+"fire-rated shafts",
+"screws at 12” o.c.",
+"latex caulk and backer rod",
+"column erection",
+"hand blown fixtures",
+"glue and screw",
+"reclaimed hardwood",
+"exposed beams",
+"drilling the pole",
+"driving piles",
+"countersinking the head",
+"exposed conduit",
+"concrete vibrators",
+"wood trusses",
+"hot-mopped asphalt",
+"steel erection",
+"dampproofing",
+"pulling wire",
+"gluing it up",
+"gang nailed",
+"king studs",
+"double headers",
+"hose bibs",
+"rod anchors",
+"gutter flashing",
+"deep grinding",
+"stuffing boxes",
+"dry stacking",
+"she bolts",
+"sex bolts",
+"backfill",
+"taking a core sample",
+"butt joints",
+"butt glazing",
+"exposed membrane",
+"deep datum penetration",
+"sack rub finish",
+"oil-rubbed brass",
+"hot-rolled steel",
+"groin vaults",
+"angles of repose",
+"blown insulation",
+"loss of skin friction",
+"removable mullions",
+"standing seams",
+"spread footings",
+"loading docks",
+"recessed cans",
+"concealed openings",
+"beds of caulk",
+"defenestration",
+"ganged vent stacks",
+"drip edges",
+"consolidated fill",
+"knuckle joints",
+"slab penetrations",
+"radius of gyration",
+"tongue and groove joints",
+"slenderness ratio",
+];
+var msgPtr = 0;
+var stopAction = null;
+
+function change() {
+var rand = content[Math.floor(Math.random()*content.length)];
+  document.getElementById('change').innerHTML = rand;
+}
+window.onload=function startFunction() { change();  stopAction = setInterval(change, 500); }
+</script>
+</head>
+<body>
+	<a href="../index.html"><div id="top"><div class="title">
+   M W Keller
+ </div></div></a>
+
+<div id="middle" class="text">There is nothing serious about <div id="change"></div>.</div>
+
+
+ <a href="mailto:mark@mwkeller.com" target="_blank"><div id="bottom"><div class="title">
+ mark@mwkeller.com
+ </div></div></a>
+
+
+</body>
+</html>
