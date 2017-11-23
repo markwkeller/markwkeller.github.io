@@ -13599,7 +13599,7 @@ function drawRose(){
   context.fillRect(centerX-rectWidth/2,centerY-rectHeight/2,rectWidth,rectHeight);
   context.strokeStyle="#fff";
   context.lineWidth=1;
-  context.font = "9px monospace";
+  context.font = "10px Courier, monospace";
   context.textAlign = "center";
   context.beginPath();
   context.moveTo(centerX-rectWidth/2,(centerY-rectHeight/2)+(sunCount/(totalCount)*rectHeight));

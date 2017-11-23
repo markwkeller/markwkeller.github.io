@@ -29633,10 +29633,10 @@ function drawRose(){
       }
     }
   }
-  context.strokeStyle = "#fff";
+  context.strokeStyle = "#f6f6f6";
   context.fillStyle = "#000";
   context.lineWidth = 5;
-  context.font = "9px monospace";
+  context.font = "10px Courier, monospace";
   context.beginPath();
   context.moveTo(centerX-13.5*winMin*.025,centerY+6*winMin*.015);
   context.lineTo(centerX+12.5*winMin*.025,centerY+6*winMin*.015);

@@ -29646,7 +29646,7 @@ function drawRose(){
   context.strokeStyle = "rgba(0,0,0,.1)";
   context.fillStyle = "#000";
   context.lineWidth = 1;
-  context.font = "9px monospace";
+  context.font = "10px Courier, monospace";
   context.beginPath();
   context.arc(centerX, centerY, 5*(.007*winMin), 0, Math.PI * 2, true);
   context.fillText("5", centerX+2+5*(.007*winMin), centerY);
