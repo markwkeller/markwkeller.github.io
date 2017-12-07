@@ -38,7 +38,7 @@
   a{
   	text-decoration:inherit;font-family:inherit;font-size:inherit;font-style:inherit;line-height:inherit;color:inherit;white-space:nowrap;display: inline;clear: none;
   }
-  a:hover, a:active{
+  a:active{
   	background: #ffff00;
   }
   .title{
@@ -47,6 +47,7 @@
     position:fixed;
     left:50%;
     top:50%;
+
     margin:-4vw 0 0 -39vw;
     text-align: center;
     -webkit-user-select: none;
@@ -72,16 +73,34 @@ amp-img.cover img {
 }
 amp-carousel{
     padding-bottom:20px;
+    outline:none;
 }
 .amp-carousel-button-prev {
-  left: 26px;
-  margin-top:3px;
-  top:50vh;
+  left: 0px;
+  border-right:.5px dotted #090909;
+}
+.amp-carousel-button-prev:hover, .amp-carousel-button-prev:active,{
+  border:none;
 }
 .amp-carousel-button-next {
-  right: 26px;
-  margin-top:3px;
+  right: 0px;
+  border-left:.5px dotted #090909;
+}
+.amp-carousel-button-next:hover, .amp-carousel-button-next:active,{
+  border:none;
+}
+.amp-carousel-button{
+  height:66vh;
+  width:12vw;
+  min-width:80px;
   top:50vh;
+  background:none;
+  outline:none;
+  z-index:9;
+}
+.amp-carousel-button:hover, .amp-carousel-button:active{
+  cursor: pointer;
+  background:#090909;
 }
 button{
   font-family: 'Egyptian', sans-serif;
@@ -93,10 +112,12 @@ button{
   border:none;
   color:#090909;
   text-shadow: 0px 0px 1.5px #090909,0px 0px .5px #090909;
+  outline:none;
 }
 button:hover, button:focus{
    color:#eee;
    text-shadow: 0px 0px 1.5px #eee,0px 0px .5px #eee;
+   cursor: pointer;
  }
 .lightbox{
   margin:0;
@@ -104,6 +125,7 @@ button:hover, button:focus{
   width:100vw;
   height:100vh;
   background:#fff;
+  outline:none;
 }
 p{
   text-align: center;
@@ -135,8 +157,7 @@ p{
      font-size: 13px;
    }
 }
-
-  </style>
+</style>
 </head>
 <body>
 
@@ -166,8 +187,6 @@ p{
     SALT SPRING ISLAND
     </button>
 </div>
-
-
 
   <amp-carousel id="hero-images"
     height="100vh"
