@@ -65,10 +65,7 @@
     top:60%;
     text-align: center;
   }
- button:hover, button:focus{
-    color:#eee;
-    text-shadow: 0px 0px 1.5px #eee,0px 0px .5px #eee;
-  }
+
   .fixed-container {
   position: relative;
   width: 100vw;
@@ -101,13 +98,16 @@ button{
   color:#090909;
   text-shadow: 0px 0px 1.5px #090909,0px 0px .5px #090909;
 }
+button:hover, button:focus{
+   color:#eee;
+   text-shadow: 0px 0px 1.5px #eee,0px 0px .5px #eee;
+ }
 .lightbox{
   margin:0;
   padding:0;
   width:100vw;
   height:100vh;
   background:#fff;
-
 }
 p{
   text-align: center;
@@ -120,6 +120,17 @@ p{
 }
 ::-moz-selection {
 	background: #ffff00;
+}
+
+@media screen and (max-width: 1080px) {
+  button{
+    text-shadow: none;
+    font-size: 24px;
+  }
+  button:hover, button:focus{
+     color:#eee;
+     text-shadow: none;
+   }
 }
 
   </style>
